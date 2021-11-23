@@ -22,7 +22,7 @@ function decreaseOperation(){
       outputScreen.innerHTML = --number;
       timer = setTimeout(decreaseOperation,150); 
       numberStyle();
-      clearInterval();
+      clearInterval();//stop arrow
    }
 }
 
@@ -36,7 +36,7 @@ function increaseOperation(){
         outputScreen.innerHTML = ++number;
         timer = setTimeout(increaseOperation,150); 
         numberStyle();
-        clearInterval();
+        clearInterval();//stop arrow
    }
 }
 
@@ -46,7 +46,7 @@ resetButton.addEventListener('click',()=>{
    number = 0
    outputScreen.innerHTML = 0;
    numberStyle();
-   clearInterval();
+   clearInterval();//to stop arrow
 })
 
 
@@ -71,9 +71,9 @@ function numberStyle(){
 //arrow anmation
 let interval;
 
-function changeColor() {
+function moveArrow() {
   if (!interval) {
-    nIntervId = setInterval(flashText, 600);
+    interval = setInterval(flashText, 500);
   }
 }
 
@@ -85,7 +85,7 @@ const arrow1 = document.querySelector('#arrow1');
     arrow1.className = "arrow-move-1";
   }
 }
-changeColor();
+moveArrow();
 
 function clearInterval(){
    arrow1.style.fontSize="7vh";
