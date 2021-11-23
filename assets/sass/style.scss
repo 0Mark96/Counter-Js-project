@@ -1,0 +1,232 @@
+
+@font-face {
+    font-family: "gameFont" ;
+    src: url("../font/EXXA\ GAME.woff2"),
+         url("../font/EXXA\ GAME.woff");
+}
+@font-face {
+    font-family: "number-game-font" ;
+    src: url("../font/game_font_7.woff2"),
+         url("../font/game_font_7.woff");
+}
+
+// var color 
+$redPink: #c60351;
+$blackGrey:#292828;
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #01a89e;
+    cursor:url(../img/cursor.png) 20 0,auto;
+    font-family: "gameFont";
+    overflow: hidden;
+}
+
+/*Game Boy container*/
+.gameBoy-cont{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 90vh;
+    width: 120vh;
+    background-image: url(../img/GameBoy.jpg) ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    .output-screen{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        left: 50vh;
+        top: 26%;
+        width: 23vh;
+        height: 16vh;
+        font: {
+            size: 11vh;
+            family: "number-game-font"
+        }
+        color: $blackGrey;
+    }
+    .cover-gameboy-oldButton{
+        position: absolute;
+        height: 11vh;
+        width: 33vh;
+        bottom:28.2vh;
+        left: 45vh;
+        background-color:$redPink;
+    }
+    .minus-button{
+        position: absolute;
+        height: 3.6vh;
+        width: 12vh;
+        left: 46vh;
+        bottom:32.4vh;
+        border-radius: 10px;
+        background: $blackGrey ;
+        box-shadow: 4.6px 2px 2.5px black,
+        2px 0px 0px black;
+        &:active {
+            transition:cubic-bezier(0.075, 0.82, 0.165, 1) 3s;
+            transform: scale(0.9);
+            box-shadow: 0.5px 0.5px 1px black,
+            1px 0px 0px black;
+        }
+    }
+    .plus-button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        bottom: 28.5vh;
+        right: 43.2vh;
+        height: 13vh;
+        font-size: 15vh;
+        color:$blackGrey;
+        text-shadow: 4.6px 2px 2.5px black,
+        2px 0px 0px black;  
+        &:active  {
+            transition:cubic-bezier(0.075, 0.82, 0.165, 1) 3s;
+            transform: scale(0.9);
+            text-shadow: 0.5px 0.5px 1px black,
+            1px 0px 0px black; 
+        }
+    }
+    .reset-button{
+        position: absolute;
+        height: 2.7vh;
+        width: 9.5vh;
+        left: 56.8vh;
+        bottom:23vh;
+        border-radius: 5px;
+        background: $blackGrey;
+        box-shadow: 4.6px 2px 2.5px black,
+        2px 0px 0px black;
+        &:active{
+            box-shadow: none;
+        }
+    }
+    .reset-text{
+        position: absolute;
+        height: 2.8vh;
+        width: 10.5vh;
+        left: 56.5vh;
+        bottom:19.5vh;
+        border-radius: 5px;
+        background-color: $redPink;
+        color: #880121;
+        font-size: 2.1vh;
+        font-weight:bolder;
+        text-align: center;
+        padding-top:0.5vh;
+    }
+}
+   
+/* text around gameboy container 1*/
+.cont-text-1{
+    display: flex;
+    flex-direction: column;
+    height: 10vh;
+    min-width: 25vh;
+    align-items: center;
+    justify-content: space-between;
+    color:white;
+    font-size: 1.6rem;
+    .arrow-move-1{
+        font-size: 7vh;
+    }
+    .arrow-move-2{
+        font-size: 12vh;
+    }
+    p{
+        position: fixed;
+        padding-top: 13vh;
+    }
+}
+
+/* text-around-gameboy-container-2*/
+.cont-text-2{
+    display: flex;
+    margin-top: 24vh;
+    height: 10vh;
+    min-width: 45vh;
+    align-items: center;
+    justify-content:space-between;
+    .arrow-2 {
+        font-size: 7vh;
+        color:white;
+        padding-right: 7vh;
+    }
+    p {
+        color: white;
+        padding-top: 0.4vh;
+        font-size: 1.4rem;
+    }
+    .fa-github{
+      color: white;
+      font-size: 7vh;
+      padding-right: 2vh;
+      cursor: url(../img/hand-cursor.png) 30 0,auto;;
+    }
+}
+
+/*number animation with javascript*/
+@keyframes pulse{
+    0%{
+        transform:scale(1);
+    }
+    50%{
+        transform: scale(1.4);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+/*Media queries*/
+@media only screen and (min-width: 1025px) {
+    body{
+        justify-content: center;
+    }
+    .cont-text-1{
+        position: absolute;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        left: 15vh;
+        bottom:38vh;
+        min-width: 20vh;
+        width: 40vh; 
+        #arrow1 {
+        transform: rotate(90deg);
+        } 
+        p {
+        font-size: 1.5rem;
+        padding-top: 0;
+        padding-right:10vh ;
+        }
+    }
+    .cont-text-2 {
+        flex-direction: column;
+        position: absolute;
+        margin-top: 0;
+        right:10vh;
+        min-height: 30vh;
+        font-size: 6vh;
+        .arrow-2{
+        transform: rotate(90deg);
+        padding-top: 2vh;
+        padding-right: 2vh;
+        }
+        p {
+        font-size: 1.5rem;
+       }
+    }
+}
