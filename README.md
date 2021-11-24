@@ -37,6 +37,8 @@ Extra animation using javascript and css:
 - Pulsation of the first numbers before and after zero
 - The last number of the counter turns red, to indicate the end
 - Button depth effect
+- Alternaly change the arrow scale
+- When any button is pressed the movement of the arrow stops
 
 ### Built with
 
