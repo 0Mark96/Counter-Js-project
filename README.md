@@ -5,7 +5,6 @@
 
 - [About The Project](#about-the-project)
   - [Links](#links)
-  - [Screenshoot](#screenshoot)
   - [Description](#description)
   - [Built with](#built-with)
   - [Useful resources](#useful-resources)
@@ -17,9 +16,7 @@
 
 - Live Site ➟ [Counter App](https://incrementing-decrementing.netlify.app/)
 
-### Screenshoot
-
-- image
+![](Screenshot.png)
 
 ### Description
 
