@@ -1,52 +1,72 @@
-const outputScreen = document.querySelector("#outputScreen");
-const decreaseButton = document.querySelector("#decreaseButton");
-const increaseButton = document.querySelector("#increaseButton");
-const resetButton = document.querySelector("#resetButton");
+// ---------------------------------------------CREATE ELEMENT-----------
 
-//-----------------------------INCREMENT AND DECREMENT-------------------------
+//decrease button
+const minBtn = document.createElement('buttom')
+minBtn.classList.add('minus-button')
+minBtn.setAttribute('id','decreaseButton')
+document.getElementById("resetButton").before(minBtn)
 
+//increase button
+const plusBtn = document.createElement('buttom')
+plusBtn.innerText = '✚'
+plusBtn.classList.add('plus-button')
+plusBtn.setAttribute('id','increaseButton')
+plusBtn.setAttribute('onmousedown','return false')
+document.getElementById("resetButton").before(plusBtn)
+
+//output screen
+
+const output = document.createElement('div')
+output.innerText = 0
+output.classList.add('output-screen')
+output.setAttribute('id','outputScreen')
+document.getElementById("gameBoyCont").prepend(output)
+
+
+
+//----------------------------------------INCREMENT AND DECREMENT-------------------------
 let number = 0;
 let timer;
 
 function timeoutClear() {
-   clearTimeout(timer);
+   clearTimeout(timer);   //function to keep buttons pressed
  }
 
  //decrease button (function)
 
-decreaseButton.addEventListener('pointerdown', decreaseOperation);
-decreaseButton.addEventListener('pointerup', timeoutClear);
-decreaseButton.addEventListener('pointerleave', timeoutClear);
+minBtn.addEventListener('pointerdown', decreaseOperation);
+minBtn.addEventListener('pointerup', timeoutClear);
+minBtn.addEventListener('pointerleave', timeoutClear);
 function decreaseOperation(){
  if(number > -99){
-      outputScreen.innerHTML = --number;
+      output.innerHTML = --number;
       timer = setTimeout(decreaseOperation,150); 
       numberStyle();
-      clearInterval();//stop arrow
+      clearArrowInterval();//stop arrow
    }
 }
 
 //increase button (function)
 
-increaseButton.addEventListener('pointerdown', increaseOperation);
-increaseButton.addEventListener('pointerup', timeoutClear);
-increaseButton.addEventListener('pointerleave', timeoutClear);
+plusBtn.addEventListener('pointerdown', increaseOperation);
+plusBtn.addEventListener('pointerup', timeoutClear);
+plusBtn.addEventListener('pointerleave', timeoutClear);
 function increaseOperation(){
    if(number < 99){
-        outputScreen.innerHTML = ++number;
+        output.innerHTML = ++number;
         timer = setTimeout(increaseOperation,150); 
         numberStyle();
-        clearInterval();//stop arrow
+        clearArrowInterval();//stop arrow
    }
 }
 
 // reset screen to 0
-
+const resetButton = document.querySelector("#resetButton");
 resetButton.addEventListener('click',()=>{
    number = 0
    outputScreen.innerHTML = 0;
    numberStyle();
-   clearInterval();//to stop arrow
+   clearArrowInterval();//to stop arrow
 })
 
 
@@ -73,11 +93,11 @@ let interval;
 
 function moveArrow() {
   if (!interval) {
-    interval = setInterval(flashText, 500);
+    interval = setInterval(changeClass, 500);
   }
 }
 
-function flashText() {
+function changeClass() {
 const arrow1 = document.querySelector('#arrow1');
   if (arrow1.className === "arrow-move-1") {
    arrow1.className = "arrow-move-2";
@@ -87,7 +107,7 @@ const arrow1 = document.querySelector('#arrow1');
 }
 moveArrow();
 
-function clearInterval(){
+function clearArrowInterval(){
    arrow1.style.fontSize="7vh";
 }
 
