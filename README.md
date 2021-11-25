@@ -21,7 +21,7 @@
 ### Description
 
 Project goals given by Start2Impact:
-
+- Implementation of the +/- buttons and the counter value display, through the use of JavaScript
 - The first counter value should be 0
 - The user should be able to increment and decrement the number by clicking two buttons
 - The rendering of the +/- buttons and of the updated number must be implemented with pure JavaScript
